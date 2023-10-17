@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 
 // material-ui
 import { Grid } from '@mui/material';
 
 // project imports
+import SuspectBoard from './suspectboard';
 
 import { gridSpacing } from 'store/constant';
 
-// ==============================|| DEFAULT DASHBOARD ||============================== //
+// ==============================|| Suspects Page ||============================== //
 
 const Suspects = () => {
-  // eslint-disable-next-line no-unused-vars
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(false);
@@ -18,15 +19,8 @@ const Suspects = () => {
 
   return (
     <Grid container spacing={gridSpacing}>
-      <Grid item xs={12}>
-        <Grid container spacing={gridSpacing}>
-          <Grid item xs={12} md={8}>
-            test
-          </Grid>
-          <Grid item xs={12} md={4}>
-            test
-          </Grid>
-        </Grid>
+      <Grid item xs={13}>
+        <SuspectBoard isLoading={isLoading} />
       </Grid>
     </Grid>
   );

@@ -28,7 +28,7 @@ function App() {
   const customization = useSelector((state) => state.customization);
 
   const [show, setShow] = useState(false);
-  const [notification, setNotification] = useState({title: '', body: ''});
+  const [notification, setNotification] = useState({ title: '', body: '' });
   const [isTokenFound, setTokenFound] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function App() {
         // Handle errors from getToken.
         console.error('Error while getting token:', err);
       });
-  }, []);
+  }, [isTokenFound, notification, show]);
 
   onMessageListener()
     .then((payload) => {
