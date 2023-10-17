@@ -78,12 +78,10 @@ const SuspectsCard = ({ isLoading }) => {
                   </Grid>
                 </Grid>
               </Grid>
-              
-              <Grid item xs={12} sx={{ pt: '16px !important' }}>
-              </Grid>
-              
-                <Suspects/>
-              
+
+              <Grid item xs={12} sx={{ pt: '16px !important' }}></Grid>
+
+              <Suspects />
             </Grid>
           </CardContent>
           <CardActions sx={{ p: 1.25, pt: 0, justifyContent: 'center' }}>

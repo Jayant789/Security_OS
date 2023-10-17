@@ -33,7 +33,6 @@ const VideoPlayingCard = ({ isLoading }) => {
   //const theme = useTheme();
   //const customization = useSelector((state) => state.customization);
 
-  
   return (
     <MainCard>
       <Grid container spacing={gridSpacing}>

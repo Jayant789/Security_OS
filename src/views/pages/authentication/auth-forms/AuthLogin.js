@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import {auth} from "../../../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../../../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 // material-ui
@@ -40,7 +40,6 @@ import Google from 'assets/images/icons/social-google.svg';
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
-
 const FirebaseLogin = ({ ...others }) => {
   const navigate = useNavigate();
   const theme = useTheme();
@@ -64,11 +63,10 @@ const FirebaseLogin = ({ ...others }) => {
 
   const loginWithEmailAndPassword = async (email, password) => {
     try {
-      signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         console.log(userCredential);
         navigate('/');
-      })
+      });
       //dispatch(setUser(user)); // Dispatch Redux action to store user data
       // You can perform further actions after successful login, such as redirection.
     } catch (error) {
@@ -76,7 +74,6 @@ const FirebaseLogin = ({ ...others }) => {
       // Handle login error here and display an error message if necessary.
     }
   };
-  
 
   return (
     <>
