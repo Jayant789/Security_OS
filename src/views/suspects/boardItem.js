@@ -37,7 +37,7 @@ const BoardItem = ({ image }) => {
       <img className="img" src={image} alt="profile" />
       <div className="overlay">Wanted</div>
       <Typography variant="body2" color="textSecondary" component="p">
-        Name
+        YULAN ADONAY ARCHAGA CARIAS
       </Typography>
     </RootPaper>
   );

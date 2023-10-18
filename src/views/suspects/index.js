@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 
 // project imports
-import SuspectBoard from './suspectboard';
+import SuspectsBoard from './suspectboard';
 
 import { gridSpacing } from 'store/constant';
 
@@ -20,7 +20,7 @@ const Suspects = () => {
   return (
     <Grid container spacing={gridSpacing}>
       <Grid item xs={13}>
-        <SuspectBoard isLoading={isLoading} />
+        <SuspectsBoard isLoading={isLoading} />
       </Grid>
     </Grid>
   );

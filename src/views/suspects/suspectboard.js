@@ -1,48 +1,37 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import MainCard from 'ui-component/cards/MainCard';
-import { gridSpacing } from 'store/constant';
+import './DetectivesBoard.css';
 import BoardItem from './boardItem';
-import Container from '@mui/material/Container';
+import MainCard from 'ui-component/cards/MainCard';
+import styled from '@emotion/styled';
+//import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import { brown } from '@mui/material/colors';
 
-const SuspectBoard = ({ isLoading }) => {
+const RootPaper = styled(Paper)`
+  position: relative;
+  padding: 15px;
+  margin: 10px;
+  background: #fffff0;
+  width: 90%;
+  height: 80%;
+  variant: outlined;
+  border-radius: 5px;
+  border: 25px solid ${brown[100]};
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+`;
+
+const SuspectsBoard = () => {
   return (
-    <div
-      style={{
-        backgroundImage: './waLLP.jpg', // Replace with your detective board image URL
-        backgroundSize: 'cover', // Adjust to 'contain' or other values as needed
-        backgroundRepeat: 'no-repeat',
-        color: 'white', // Text color for the card
-        minHeight: '100%' // Ensure the background covers the entire card
-      }}
-    >
-      <Container
-        maxWidth="lg"
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: gridSpacing,
-          padding: '20px',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)' // Semi-transparent background
-        }}
-      >
-        <Typography variant="subtitle2" sx={{ color: 'white' }}>
-          Board
-        </Typography>
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        <BoardItem image="https://www.fbi.gov/wanted/cyber/behzad-mohammadzadeh/@@images/image/preview" />
-        {/* Add more BoardItem components with different images as needed */}
-      </Container>
-    </div>
+    <MainCard>
+      <RootPaper elevation={5}>
+        <BoardItem image="https://www.fbi.gov/wanted/topten/yulan-adonay-archaga-carias/@@images/image/preview" />
+        <BoardItem image="https://www.fbi.gov/wanted/topten/yulan-adonay-archaga-carias/@@images/image/preview" />
+        <BoardItem image="https://www.fbi.gov/wanted/topten/yulan-adonay-archaga-carias/@@images/image/preview" />
+        <BoardItem image="https://www.fbi.gov/wanted/topten/yulan-adonay-archaga-carias/@@images/image/preview" />
+      </RootPaper>
+    </MainCard>
   );
 };
 
-export default SuspectBoard;
+export default SuspectsBoard;
