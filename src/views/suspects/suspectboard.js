@@ -11,12 +11,13 @@ const RootPaper = styled(Paper)`
   position: relative;
   padding: 15px;
   margin: 10px;
-  background: #fffff0;
+  background: url('https://media.istockphoto.com/id/1388032818/photo/paper-texture-cardboard-background-close-up-grunge-paper-texture.jpg?s=2048x2048&w=is&k=20&c=xWxSv8-TJ5qdStfyzxPxtSrXK9bztr2xK_4UnEtbrMw='); /* Replace with your image URL */
+  background-size: cover;
   width: 90%;
   height: 80%;
   variant: outlined;
   border-radius: 5px;
-  border: 25px solid ${brown[450]};
+  border: 25px solid ${brown[700]};
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
   text-align: center;
   display: grid;

@@ -20,13 +20,13 @@ const BoardItem = ({ image }) => {
     borderRadius: '5px',
     boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
-    transform: rotation,
+    transform: rotation
   };
 
   const imgStyle = {
     width: '100%',
     height: 'auto',
-    borderRadius: '5px 5px 0 0',
+    borderRadius: '5px 5px 0 0'
   };
 
   const overlayStyle = {
@@ -36,7 +36,7 @@ const BoardItem = ({ image }) => {
     color: 'white',
     background: 'rgba(0, 0, 0, 0.5)',
     padding: '5px 10px',
-    borderRadius: '5px',
+    borderRadius: '5px'
   };
 
   return (
