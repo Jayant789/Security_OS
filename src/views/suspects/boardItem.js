@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
+import thumbPinImage from './pin2-removebg-preview.png';
 
 const getRandomRotation = () => {
   // Generate a random angle between -5 and 5 degrees
@@ -39,8 +40,20 @@ const BoardItem = ({ image }) => {
     borderRadius: '5px'
   };
 
+  const pinStyle = {
+    position: 'absolute',
+    top: '-20px',
+    left: '50%',
+    transform: 'translateX(-50%) rotate(-45deg)',
+    width: '50px',
+    height: '50px',
+    background: `url(${thumbPinImage})`, // Replace 'path-to-your-thumb-pin-image.png' with the actual path to your image
+    backgroundSize: 'cover'
+  };
+
   return (
     <Paper elevation={3} style={rootStyle}>
+      <div style={pinStyle}></div>
       <img style={imgStyle} src={image} alt="profile" />
       <div style={overlayStyle}>Wanted</div>
       <Typography variant="body2" color="textSecondary" component="p">
