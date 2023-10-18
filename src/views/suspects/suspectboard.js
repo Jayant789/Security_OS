@@ -6,12 +6,14 @@ import styled from '@emotion/styled';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { brown } from '@mui/material/colors';
+import backgroundImage from './paper.jpg'; // Replace with the actual image path
+import borderPattern from './border.jpg';
 
 const RootPaper = styled(Paper)`
   position: relative;
   padding: 15px;
   margin: 10px;
-  background: url('https://media.istockphoto.com/id/1388032818/photo/paper-texture-cardboard-background-close-up-grunge-paper-texture.jpg?s=2048x2048&w=is&k=20&c=xWxSv8-TJ5qdStfyzxPxtSrXK9bztr2xK_4UnEtbrMw='); /* Replace with your image URL */
+  background: url(${backgroundImage});
   background-size: cover;
   width: 90%;
   height: 80%;
@@ -20,6 +22,9 @@ const RootPaper = styled(Paper)`
   border: 25px solid ${brown[700]};
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
   text-align: center;
+  border-image: url(${borderPattern}) 25 round;
+  border-width: 25px;
+  border-style: solid;
   display: grid;
   grid-template-columns: repeat(3, 1fr); // Create 3 equal-width columns
   gap: 10px;
