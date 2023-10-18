@@ -44,7 +44,7 @@ const BoardItem = ({ image }) => {
     position: 'absolute',
     top: '-20px',
     left: '50%',
-    transform: 'translateX(-50%) rotate(-45deg)',
+    transform: 'translateX(-50%) ',
     width: '50px',
     height: '50px',
     background: `url(${thumbPinImage})`, // Replace 'path-to-your-thumb-pin-image.png' with the actual path to your image

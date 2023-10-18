@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { brown } from '@mui/material/colors';
-import backgroundImage from './paper.jpg'; // Replace with the actual image path
+import backgroundImage from './paper2.jpg'; // Replace with the actual image path
 import borderPattern from './border.jpg';
 
 const RootPaper = styled(Paper)`
