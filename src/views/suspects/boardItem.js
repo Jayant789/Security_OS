@@ -4,7 +4,6 @@ import Paper from '@mui/material/Paper';
 import thumbPinImage from './pin2-removebg-preview.png';
 
 const getRandomRotation = () => {
-  // Generate a random angle between -5 and 5 degrees
   return `rotate(${Math.random() * 10 - 5}deg)`;
 };
 
@@ -47,7 +46,7 @@ const BoardItem = ({ image }) => {
     transform: 'translateX(-50%) ',
     width: '50px',
     height: '50px',
-    background: `url(${thumbPinImage})`, // Replace 'path-to-your-thumb-pin-image.png' with the actual path to your image
+    background: `url(${thumbPinImage})`,
     backgroundSize: 'cover'
   };
 
