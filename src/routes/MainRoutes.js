@@ -24,7 +24,13 @@ const MainRoutes = {
       children: [
         {
           path: 'default',
-          element: <DashboardDefault />
+          element: (
+            <>
+              <DashboardDefault />
+              <p></p>
+              <News />
+            </>
+          )
         },
         {
           path: 'suspects',
