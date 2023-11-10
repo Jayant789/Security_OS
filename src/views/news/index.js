@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import MainCard from 'ui-component/cards/MainCard';
+
+import MapComponent from './MapComponent';
 
 // material-ui
 import { Grid } from '@mui/material';
@@ -17,18 +20,20 @@ const News = () => {
   }, []);
 
   return (
-    <Grid container spacing={gridSpacing}>
-      <Grid item xs={12}>
-        <Grid container spacing={gridSpacing}>
-          <Grid item xs={12} md={8}>
-            test
-          </Grid>
-          <Grid item xs={12} md={4}>
-            test
+    <MainCard>
+      <Grid container spacing={gridSpacing}>
+        <Grid item xs={12}>
+          <Grid container spacing={gridSpacing}>
+            <Grid item xs={12} md={8}>
+              <MapComponent />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              test
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </MainCard>
   );
 };
 
