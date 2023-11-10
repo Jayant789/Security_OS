@@ -17,9 +17,22 @@ const status = [
   }
 ];
 
+const cameras = [
+  {
+    value: '0',
+    label: 'Camera 1'
+  },
+  {
+    value: '1',
+    label: 'Camera 2'
+  }
+  // Add more cameras as needed
+];
+
 const VideoPlayingCard = () => {
   const [value, setValue] = useState('Face Recognition');
-  const videoUrl = 'http://127.0.0.1:8000/video_feed'; // Set the video URL directly
+  const [cameraValue, setCameraValue] = useState('camera1');
+  const videoUrl = `http://127.0.0.1:8000/video_feed?camera=${cameraValue}`;
 
   return (
     <Grid container spacing={2}>
@@ -36,8 +49,17 @@ const VideoPlayingCard = () => {
             </Grid>
           </Grid>
           <Grid item>
-            <TextField id="standard-select-currency" select value={value} onChange={(e) => setValue(e.target.value)}>
+            <TextField id="select-model" select value={value} onChange={(e) => setValue(e.target.value)}>
               {status.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+          <Grid item>
+            <TextField id="camera-select" select value={cameraValue} onChange={(e) => setCameraValue(e.target.value)}>
+              {cameras.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>

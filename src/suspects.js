@@ -98,7 +98,14 @@ function Suspects() {
       }
     };
 
-    fetchData();
+    fetchData(); // Initial data fetch
+
+    const intervalId = setInterval(() => {
+      fetchData(); // Fetch data every 10 seconds
+    }, 10000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
   }, []);
 
   const handleSuspectClick = (suspect) => {
@@ -114,7 +121,7 @@ function Suspects() {
   return (
     <>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        {suspects.map((suspect) => (
+        {suspects.slice(0, 2).map((suspect) => (
           <React.Fragment key={suspect.id}>
             <ListItem
               alignItems="flex-start"
@@ -202,10 +209,10 @@ function Suspects() {
                     Name : {selectedSuspect.Name}
                   </Text>
                   <Text style={{ color: '#fff', fontFamily: 'Orbitron' }} manager="decipher" easing="outSine" fixed>
-                    Gender : {selectedSuspect.Gender}
+                    Gender : Male
                   </Text>
                   <Text style={{ color: '#fff', fontFamily: 'Orbitron' }} manager="decipher" easing="outSine" fixed>
-                    Severity : {selectedSuspect.Severity}
+                    Severity : High
                   </Text>
                   <Text style={{ color: '#fff', fontFamily: 'Orbitron' }} manager="decipher" easing="outSine" fixed>
                     Last Viewed : {selectedSuspect['Last Viewed']}
