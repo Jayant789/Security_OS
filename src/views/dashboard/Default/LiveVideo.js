@@ -31,7 +31,7 @@ const cameras = [
 
 const VideoPlayingCard = () => {
   const [value, setValue] = useState('Face Recognition');
-  const [cameraValue, setCameraValue] = useState('camera1');
+  const [cameraValue, setCameraValue] = useState('0');
   const videoUrl = `http://127.0.0.1:8000/video_feed?camera=${cameraValue}`;
 
   return (
