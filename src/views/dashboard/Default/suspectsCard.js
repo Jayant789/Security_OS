@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Suspects from '../../../suspects';
-
+import { Link } from 'react-router-dom';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Button, CardActions, CardContent, Grid, Menu, MenuItem, Typography } from '@mui/material';
+import { CardActions, CardContent, Grid, Menu, MenuItem, Typography } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -85,10 +85,10 @@ const SuspectsCard = ({ isLoading }) => {
             </Grid>
           </CardContent>
           <CardActions sx={{ p: 1.25, pt: 0, justifyContent: 'center' }}>
-            <Button size="small" disableElevation>
+            <Link size="small" disableElevation to="/dashboard/suspects">
               View All
               <ChevronRightOutlinedIcon />
-            </Button>
+            </Link>
           </CardActions>
         </MainCard>
       )}
