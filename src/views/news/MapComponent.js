@@ -3,9 +3,22 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
+// import { Router } from 'react-router';
 
-const iconPerson = new Icon({
-  iconUrl: require('./placeholder.png'),
+const violentCrimeIcon = new Icon({
+  iconUrl: require('./violentCrime.png'),
+  iconSize: [38, 38]
+});
+const otherCrimeIcon = new Icon({
+  iconUrl: require('./otherCrime.png'),
+  iconSize: [38, 38]
+});
+const personalCrimeIcon = new Icon({
+  iconUrl: require('./personalCrime.png'),
+  iconSize: [38, 38]
+});
+const propertyCrimeIcon = new Icon({
+  iconUrl: require('./propertyCrime.png'),
   iconSize: [38, 38]
 });
 
@@ -13,247 +26,281 @@ const center = [54.21133309402026, -2.830688497073126];
 
 let crimeData = [
   {
-    id: 1,
-    link: 'https://www.mylondon.news/news/south-london-news/met-police-issue-kingston-incident-27884266',
-    location: 'South West',
-    latitude: 2.744714,
-    longitude: 43.9319306,
+    id: 53,
+    headline: "Inside London Underground workshop as 'failing' Central line trains given £500m overhaul",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28114662.ece/ALTERNATES/s1200/0_image-81.png',
+    link: 'https://www.mylondon.news/news/transport/gallery/inside-london-underground-workshop-failing-28114387',
+    location: 'Acton',
+    latitude: 51.5081402,
+    longitude: -0.2732607,
     crime: 'OTHER CRIMES',
-    date: '2023-10-11'
+    date: '2023-11-16'
   },
   {
-    id: 2,
-    link: 'https://www.mylondon.news/news/north-london-news/two-men-stabbed-man-seen-27883522',
+    id: 54,
+    headline: "Majority of LGBT+ people face abuse on London transport as bystanders 'do nothing to help'",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article24281057.ece/ALTERNATES/s1200/1_GettyImages-1248436346.jpg',
+    link: 'https://www.mylondon.news/news/transport/majority-lgbt-people-face-abuse-28109659',
+    location: 'London',
+    latitude: 51.5074456,
+    longitude: -0.1277653,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 55,
+    headline: "Window cleaner, 49, who sent children masturbation videos snared by the same 'paedophile hunters' three times in one month",
+    imagelink:
+      'https://i2-prod.mylondon.news/incoming/article28113117.ece/ALTERNATES/s1200/1_WhatsApp-Image-2023-11-15-at-160310-1jpeg.jpg',
+    link: 'https://www.mylondon.news/news/east-london-news/window-cleaner-49-who-sent-28112367',
+    location: 'East London',
+    latitude: -33.0191604,
+    longitude: 27.8998573,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 56,
+    headline: "Southall neighbours can't stop thinking of 'screams' after boy stabbed to death in 'quiet' street",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28111175.ece/ALTERNATES/s1200/1_WhatsApp-Image-2023-11-15-at-130750jpeg.jpg',
+    link: 'https://www.mylondon.news/news/west-london-news/southall-neighbours-cant-stop-hearing-28111397',
     location: 'West London',
     latitude: 38.1943567,
     longitude: -81.3686944,
-    crime: 'Edgware incidents VIOLENT CRIMES',
-    date: '2023-10-11'
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 3,
-    link: 'https://www.mylondon.news/news/south-london-news/teenager-rushed-hospital-after-being-27882989',
-    location: 'South London',
-    latitude: 31.5231809,
-    longitude: 34.6100421,
-    crime: 'OTHER CRIMES',
-    date: '2023-10-11'
+    id: 57,
+    headline: "Southall neighbours can't stop thinking of 'screams' after boy stabbed to death in 'quiet' street",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28111175.ece/ALTERNATES/s1200/1_WhatsApp-Image-2023-11-15-at-130750jpeg.jpg',
+    link: 'https://www.mylondon.news/news/west-london-news/southall-neighbours-cant-stop-hearing-28111397',
+    location: 'West London',
+    latitude: 38.1943567,
+    longitude: -81.3686944,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 4,
-    link: 'https://www.mylondon.news/news/north-london-news/teenage-predator-raped-woman-sexually-27881648',
+    id: 58,
+    headline: "Dad, 52, asked 'how would you feel?' if daughters were sexually abused like babies in sick videos he was caught with",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28110728.ece/ALTERNATES/s1200/0_WhatsApp-Image-2023-11-15-at-123339jpeg.jpg',
+    link: 'https://www.mylondon.news/news/east-london-news/dad-52-asked-how-would-28110241',
     location: 'East London',
     latitude: -33.0191604,
     longitude: 27.8998573,
-    crime: 'predator VIOLENT CRIMES',
-    date: '2023-10-11'
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 5,
-    link: 'https://www.mylondon.news/news/south-london-news/family-man-65-retire-crushed-27880767',
-    location: 'America',
-    latitude: 39.7837304,
-    longitude: -100.445882,
-    crime: 'recycling lorry OTHER CRIMES',
-    date: '2023-10-11'
+    id: 59,
+    headline: "'Clifton Rapist' back behind bars after convicted murderer free to sexually assault London woman despite 'life sentence'",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28108441.ece/ALTERNATES/s1200/0_ron-evans-2.png',
+    link: 'https://www.mylondon.news/news/north-london-news/clifton-rapist-back-behind-bars-28108307',
+    location: 'Bristol',
+    latitude: 51.4538022,
+    longitude: -2.5972985,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 6,
-    link: 'https://www.mylondon.news/news/west-london-news/harrow-man-arrested-major-people-27880515',
-    location: 'London',
-    latitude: 51.5073359,
-    longitude: -0.12765,
-    crime: 'boat PERSONAL CRIMES',
-    date: '2023-10-11'
+    id: 60,
+    headline: "Parents of girl killed in Wimbledon school crash 'struggle to wake up' every morning",
+    imagelink: 'https://i2-prod.mylondon.news/news/south-london-news/article27288352.ece/ALTERNATES/s1200/1_Nuria-Sajjad.jpg',
+    link: 'https://www.mylondon.news/news/west-london-news/parents-girl-killed-wimbledon-school-28108231',
+    location: 'South West',
+    latitude: 5.3356587,
+    longitude: 100.2389496,
+    crime: 'PERSONAL CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 7,
-    link: 'https://www.mylondon.news/news/south-london-news/peckham-shop-owner-filmed-strangling-27879263',
-    location: 'South London',
-    latitude: 31.5231809,
-    longitude: 34.6100421,
-    crime: 'shop PROPERTY CRIMES',
-    date: '2023-10-11'
+    id: 61,
+    headline: "Live Southall stabbing updates as teenager 'murdered' with 4 men arrested",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28111173.ece/ALTERNATES/s1200/1_WhatsApp-Image-2023-11-15-at-130749jpeg.jpg',
+    link: 'https://www.mylondon.news/news/west-london-news/live-southall-updates-teenager-stabbed-28108485',
+    location: 'West London',
+    latitude: 38.1943567,
+    longitude: -81.3686944,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 8,
-    link: 'https://www.mylondon.news/news/east-london-news/man-45-dies-after-falling-27879777',
-    location: 'East London',
-    latitude: -33.0191604,
-    longitude: 27.8998573,
-    crime: 'OTHER CRIMES',
-    date: '2023-10-11'
+    id: 62,
+    headline: 'Armed thugs plunder Tesco and Nisa with handgun, hammer, and knife in spate of North London robberies',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28106147.ece/ALTERNATES/s1200/0_TESCO-ROBBER.png',
+    link: 'https://www.mylondon.news/news/north-london-news/armed-thugs-plunder-tesco-nisa-28106038',
+    location: 'North London',
+    latitude: 41.332052,
+    longitude: 19.8048247,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 9,
-    link: 'https://www.mylondon.news/news/south-london-news/girls-left-drown-given-black-27873805',
-    location: 'London',
-    latitude: 51.5073359,
-    longitude: -0.12765,
-    crime: 'window PROPERTY CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 10,
-    link: 'https://www.mylondon.news/news/south-london-news/met-police-officer-put-hand-27877232',
-    location: 'South London',
-    latitude: 31.5231809,
-    longitude: 34.6100421,
-    crime: 'OTHER CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 11,
-    link: 'https://www.mylondon.news/news/uk-world-news/knifeman-threatened-firebomb-home-stole-27876378',
-    location: 'Derbyshire',
-    latitude: 53.1185033,
-    longitude: -1.5566179,
-    crime: 'stole PROPERTY CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 12,
-    link: 'https://www.mylondon.news/news/south-london-news/met-police-warn-do-not-27876153',
-    location: 'South London',
-    latitude: 31.5231809,
-    longitude: 34.6100421,
-    crime: 'stash PROPERTY CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 13,
-    link: 'https://www.mylondon.news/news/east-london-news/east-london-man-murdered-sister-27875371',
-    location: 'Ilford',
-    latitude: 51.5582734,
-    longitude: 0.0711669,
-    crime: 'murdered VIOLENT CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 14,
-    link: 'https://www.mylondon.news/news/east-london-news/met-police-officer-wore-sinister-27873459',
-    location: 'East London',
-    latitude: -33.0191604,
-    longitude: 27.8998573,
-    crime: 'beat VIOLENT CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 15,
-    link: 'https://www.mylondon.news/news/north-london-news/nightmare-neighbour-shouted-wild-child-27871226',
-    location: 'West Hampstead',
-    latitude: 51.5468194,
-    longitude: -0.1899646,
-    crime: 'child abuse OTHER CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 16,
-    link: 'https://www.mylondon.news/news/west-london-news/prime-suspect-suzy-lamplugh-murder-27873563',
-    location: 'London',
-    latitude: 51.5073359,
-    longitude: -0.12765,
-    crime: 'murder PROPERTY CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 17,
-    link: 'https://www.mylondon.news/news/south-london-news/battersea-shooting-victim-21-named-27873633',
+    id: 63,
+    headline: "Channel 4 Banged Up ex-con had 'best night sleep' when he returned to prison to film show",
+    imagelink:
+      'https://i2-prod.mylondon.news/incoming/article28093431.ece/ALTERNATES/s1200/4_WhatsApp-Image-2023-11-12-at-174948-2jpeg.jpg',
+    link: 'https://www.mylondon.news/news/tv/channel-4-banged-up-ex-28093350',
     location: 'Battersea',
     latitude: 51.4707933,
     longitude: -0.172214,
-    crime: 'shooting VIOLENT CRIMES',
-    date: '2023-10-11'
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 18,
-    link: 'https://www.mylondon.news/news/north-london-news/arsenal-fan-wheelchair-crashed-man-27871062',
-    location: 'Emirates',
-    latitude: 53.8698063,
-    longitude: 27.5513085,
-    crime: 'game VIOLENT CRIMES',
-    date: '2023-10-11'
+    id: 64,
+    headline: "Mum accused of biting baby girl while husband 'battered her to death' says she 'thought it happened naturally', court hears",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28105559.ece/ALTERNATES/s1200/1_WhatsApp-Image-2023-11-14-at-155222jpeg.jpg',
+    link: 'https://www.mylondon.news/news/east-london-news/mum-accused-biting-baby-girl-28104389',
+    location: 'Colindale',
+    latitude: 51.5954091,
+    longitude: -0.2499296,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 19,
-    link: 'https://www.mylondon.news/news/north-london-news/police-appeal-after-woman-allegedly-27867623',
-    location: 'Selma',
-    latitude: 32.4078632,
-    longitude: -87.0207473,
-    crime: 'threw racist OTHER CRIMES',
-    date: '2023-10-11'
+    id: 65,
+    headline: "Man 'stabbed' in head outside London Underground station in late night attack",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28104512.ece/ALTERNATES/s1200/0_willesden-green-station.jpg',
+    link: 'https://www.mylondon.news/news/north-london-news/man-stabbed-head-outside-london-28104440',
+    location: 'North London',
+    latitude: 41.332052,
+    longitude: 19.8048247,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 20,
-    link: 'https://www.mylondon.news/news/south-london-news/grim-week-london-after-5-27867659',
+    id: 66,
+    headline: 'Everything we know about Hounslow fire that killed 5 as firefighters search for 6th person',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28097105.ece/ALTERNATES/s1200/0_WhatsApp-Image-2023-11-13-at-120723jpeg.jpg',
+    link: 'https://www.mylondon.news/news/west-london-news/everything-know-hounslow-fire-killed-28102379',
+    location: 'West London',
+    latitude: 38.1943567,
+    longitude: -81.3686944,
+    crime: 'OTHER CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 67,
+    headline: "Woman asks 'are you a Jew?' before threatening passengers on London bus",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28101667.ece/ALTERNATES/s1200/2_Screenshot-2023-11-14-084951.png',
+    link: 'https://www.mylondon.news/news/north-london-news/woman-asks-are-you-jew-28101636',
     location: 'London',
-    latitude: 51.5073359,
-    longitude: -0.12765,
-    crime: 'killed VIOLENT CRIMES',
-    date: '2023-10-11'
+    latitude: 51.5074456,
+    longitude: -0.1277653,
+    crime: 'OTHER CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 21,
-    link: 'https://www.mylondon.news/news/north-london-news/man-banned-driving-after-shocking-27864024',
+    id: 68,
+    headline: 'Shane Jerome murder explained as The Met series finale revisits brutal stabbing of motorcycle stuntman',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28053555.ece/ALTERNATES/s1200/0_shane-jerome.png',
+    link: 'https://www.mylondon.news/news/tv/shane-jerome-murder-explained-met-28053041',
+    location: 'UK',
+    latitude: 54.7023545,
+    longitude: -3.2765753,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 69,
+    headline: 'East London pervert, 52, finally banged up for rape he committed 24 years ago',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28101394.ece/ALTERNATES/s1200/0_01KF74921_Basith_Abdul.jpg',
+    link: 'https://www.mylondon.news/news/east-london-news/east-london-pervert-52-finally-28101383',
     location: 'East London',
     latitude: -33.0191604,
     longitude: 27.8998573,
-    crime: 'car PROPERTY CRIMES',
-    date: '2023-10-11'
+    crime: 'PERSONAL CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 22,
-    link: 'https://www.mylondon.news/news/uk-world-news/suella-braverman-calls-full-force-27867038',
+    id: 70,
+    headline: 'Mum of footballer killed in pub row dies from cancer after setting up charity to help disadvantaged youths',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28100796.ece/ALTERNATES/s1200/0_fundraising-mum-1097388.jpg',
+    link: 'https://www.mylondon.news/news/health/mum-footballer-killed-pub-row-28100605',
+    location: 'Retford',
+    latitude: 53.3231315,
+    longitude: -0.9424879,
+    crime: 'PROPERTY CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 71,
+    headline: "Paint thrown on North London homes in 'potential hate crime'",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28102179.ece/ALTERNATES/s1200/0_IMG_0781.jpg',
+    link: 'https://www.mylondon.news/news/north-london-news/police-launch-investigation-after-pain-28099510',
+    location: 'North London',
+    latitude: 41.332052,
+    longitude: 19.8048247,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 72,
+    headline: "Brutal unsolved murder of London Playboy Bunny girl investigated by Louis Theroux's brother in new ITV series",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28099830.ece/ALTERNATES/s1200/2_Copy-of-Untitled.jpg',
+    link: 'https://www.mylondon.news/news/tv/brutal-unsolved-serial-killer-murder-28099168',
     location: 'London',
-    latitude: 51.5073359,
-    longitude: -0.12765,
-    crime: 'law PROPERTY CRIMES',
-    date: '2023-10-11'
+    latitude: 51.5074456,
+    longitude: -0.1277653,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   },
   {
-    id: 23,
-    link: 'https://www.mylondon.news/news/transport/two-horses-killed-m25-hit-27866019',
-    location: 'North London',
-    latitude: 41.332052,
-    longitude: 19.8048247,
+    id: 73,
+    headline: "Coke fiend, 44, told woman, 25, he wanted to 'f**k her nappy' then broke into her flat and wore her thong",
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28099113.ece/ALTERNATES/s1200/0_Antony-Debono.jpg',
+    link: 'https://www.mylondon.news/news/east-london-news/coke-fiend-44-told-woman-28096185',
+    location: 'East London',
+    latitude: -33.0191604,
+    longitude: 27.8998573,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 74,
+    headline: 'Panty pirates who made £400k selling fake designer underwear on eBay walk free after dirty laundry exposed',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28099172.ece/ALTERNATES/s1200/0_GettyImages-1336136316.jpg',
+    link: 'https://www.mylondon.news/news/east-london-news/panty-pirates-who-made-400k-28098149',
+    location: 'Hertfordshire',
+    latitude: 51.8400523,
+    longitude: -0.0978552,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 75,
+    headline: 'Met Police sergeant Matt Ratana shot dead after colleagues botched search of gunman Louis De Zoysa',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article27115473.ece/ALTERNATES/s1200/2_01H27MR372J60QGXJRYQVM3GBP.jpg',
+    link: 'https://www.mylondon.news/news/south-london-news/met-police-sergeant-matt-ratana-28098600',
+    location: 'Croydon',
+    latitude: 51.3713049,
+    longitude: -0.101957,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
+  },
+  {
+    id: 76,
+    headline: 'West London man who smuggled £1000s to fund terrorism jailed for 8 years',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article28097518.ece/ALTERNATES/s1200/0_01HCW7DFMKHZ9QN80PCQCSRA4B.jpg',
+    link: 'https://www.mylondon.news/news/west-london-news/west-london-man-who-smuggled-28097481',
+    location: 'West London',
+    latitude: 38.1943567,
+    longitude: -81.3686944,
     crime: 'OTHER CRIMES',
-    date: '2023-10-11'
+    date: '2023-11-16'
   },
   {
-    id: 24,
-    link: 'https://www.mylondon.news/news/north-london-news/police-hunt-after-north-london-27865972',
-    location: 'North London',
-    latitude: 41.332052,
-    longitude: 19.8048247,
-    crime: 'brawl VIOLENT CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 25,
-    link: 'https://www.mylondon.news/news/south-london-news/brixton-locals-say-antisocial-behaviour-27884939',
-    location: 'Brixton',
-    latitude: 51.4568044,
-    longitude: -0.1167959,
-    crime: 'urine PROPERTY CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 26,
-    link: 'https://www.mylondon.news/news/west-london-news/motorcyclist-dies-after-crashing-level-27885658',
-    location: 'Staines',
-    latitude: 51.434012,
-    longitude: -0.511044,
-    crime: 'OTHER CRIMES',
-    date: '2023-10-11'
-  },
-  {
-    id: 27,
-    link: 'https://www.mylondon.news/news/south-london-news/man-charged-murder-bromley-teenager-27913123',
-    location: 'Bromley',
-    latitude: 51.4028046,
-    longitude: 0.0148142,
-    crime: 'charged with murder VIOLENT CRIMES',
-    date: '2023-10-16'
+    id: 77,
+    headline: 'Cheating Met Police officer tried to rape colleague by forcing her head towards his crotch during clinch',
+    imagelink: 'https://i2-prod.mylondon.news/incoming/article24380751.ece/ALTERNATES/s1200/3_KP_HMB__220621_1893.jpg',
+    link: 'https://www.mylondon.news/news/south-london-news/cheating-met-police-officer-tried-28097129',
+    location: 'Sidcup',
+    latitude: 51.4264002,
+    longitude: 0.101044,
+    crime: 'VIOLENT CRIMES',
+    date: '2023-11-16'
   }
 ];
 
@@ -269,14 +316,41 @@ const MapComponent = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           {crimeData.map((marker) => (
-            <Marker position={[marker.latitude, marker.longitude]} icon={iconPerson} key={marker.id}>
-              <Popup>{marker.crime}</Popup>
+            <Marker
+              position={[marker.latitude, marker.longitude]}
+              icon={
+                marker.crime === 'VIOLENT CRIMES'
+                  ? violentCrimeIcon
+                  : marker.crime === 'PROPERTY CRIMES'
+                  ? propertyCrimeIcon
+                  : marker.crime === 'PERSONAL CRIMES'
+                  ? personalCrimeIcon
+                  : otherCrimeIcon
+              }
+              key={marker.id}
+            >
+              <Popup>{marker.headline}</Popup>
             </Marker>
           ))}
         </MapContainer>
+        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+          <p>
+            <span style={{ backgroundColor: '#FD003A', color: '#FD003A' }}>.{'    '}.</span> Violent Crime
+          </p>
+          <p>
+            <span style={{ backgroundColor: '#0178FD', color: '#0178FD' }}>.{'    '}.</span> Property Crime
+          </p>
+          <p>
+            <span style={{ backgroundColor: '#CC01FD', color: '#CC01FD' }}>.{'    '}.</span> Personal Crime
+          </p>
+          <p>
+            <span style={{ backgroundColor: '#FFDE20', color: '#FFDE20' }}>.{'    '}.</span> Other Crime
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
 export default MapComponent;
+// /FFDE20

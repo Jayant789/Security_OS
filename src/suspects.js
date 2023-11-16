@@ -215,13 +215,13 @@ function Suspects() {
                     Severity : High
                   </Text>
                   <Text style={{ color: '#fff', fontFamily: 'Orbitron' }} manager="decipher" easing="outSine" fixed>
-                    Last Viewed : {selectedSuspect['Last Viewed']}
+                    Last Viewed : {selectedSuspect.Date} at {selectedSuspect.Time}
                   </Text>
                   <Text style={{ color: '#fff', fontFamily: 'Orbitron' }} manager="decipher" easing="outSine" fixed>
                     Crimes : {selectedSuspect.Crimes}
                   </Text>
                   <Text style={{ color: '#fff', fontFamily: 'Orbitron' }} manager="decipher" easing="outSine" fixed>
-                    Warrant Issued : {selectedSuspect['Warrant Issued']}
+                    Warrant Issued : YES
                   </Text>
                   <Text style={{ color: '#fff', fontFamily: 'Orbitron' }} manager="decipher" easing="outSine" fixed>
                     Log : {selectedSuspect.Log}
