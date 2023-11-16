@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import MainCard from 'ui-component/cards/MainCard';
 
 import MapComponent from './MapComponent';
+import CrimeGrid from './CrimeGrid';
 
 // material-ui
 import { Grid } from '@mui/material';
@@ -28,7 +29,7 @@ const News = () => {
               <MapComponent />
             </Grid>
             <Grid item xs={12} md={4}>
-              test
+              <CrimeGrid />
             </Grid>
           </Grid>
         </Grid>
